@@ -1,7 +1,7 @@
 <template>
   <div class="study p-4 bg-white selector-dark:bg-gray-800 rounded-lg shadow-md">
     <div class="mb-4 flex justify-between items-center">
-      <h2 class="text-xl font-semibold selector-dark:text-white">
+      <h2 class="text-xl font-semibold text-gray-800 selector-dark:text-white">
         Studying: {{ deck ? deck.name : 'Loading...' }}
       </h2>
       <div>
