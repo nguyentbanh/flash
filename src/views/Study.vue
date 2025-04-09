@@ -1,18 +1,18 @@
 <template>
   <div class="study p-4 bg-white selector-dark:bg-gray-800 rounded-lg shadow-md">
-    <div class="mb-4 flex justify-between items-center">
-      <h2 class="text-xl font-semibold text-gray-800 selector-dark:text-white">
+    <div class="mb-4 flex justify-between items-center flex-wrap">
+      <h2 class="text-xl font-semibold text-gray-800 selector-dark:text-white mb-2 sm:mb-0">
         Studying: {{ deck ? deck.name : 'Loading...' }}
       </h2>
-      <div>
+      <div class="flex gap-2">
         <button
           @click="exportDeck"
-          class="mr-2 bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded text-sm"
+          class="bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded text-sm"
         >
-          Export Deck
+          Export
         </button>
-        <router-link to="/" class="text-blue-500 hover:text-blue-700 selector-dark:text-blue-400 selector-dark:hover:text-blue-300">
-          Back to Decks
+        <router-link to="/" class="text-blue-500 hover:text-blue-700 selector-dark:text-blue-400 selector-dark:hover:text-blue-300 px-3 py-1">
+          Back
         </router-link>
       </div>
     </div>
@@ -23,31 +23,31 @@
         @card-action="handleCardAction"
       />
 
-      <div class="mt-4 flex justify-center gap-4">
+      <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
         <button
           @click="handleCardAction(currentCard.id, 'relearn')"
           class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
         >
-          Need to Review (⬅️ Swipe Left)
+          Need to Review (⬅️)
         </button>
 
         <button
           @click="handleCardAction(currentCard.id, 'know')"
           class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded"
         >
-          Know It (➡️ Swipe Right)
+          Know It (➡️)
         </button>
       </div>
 
-      <!-- Progress indicators -->
-      <div class="flex justify-between mt-4">
-        <div class="text-green-600 selector-dark:text-green-400 font-medium">
+      <!-- Progress indicators - simplified for mobile -->
+      <div class="flex justify-between mt-4 flex-wrap">
+        <div class="text-green-600 selector-dark:text-green-400 font-medium mb-1">
           Know: {{ deck.knowStack.length }}
         </div>
-        <div class="text-blue-600 selector-dark:text-blue-400 font-medium">
-          Remaining: {{ deck.cards.length }}
+        <div class="text-blue-600 selector-dark:text-blue-400 font-medium mb-1">
+          Left: {{ deck.cards.length }}
         </div>
-        <div class="text-red-600 selector-dark:text-red-400 font-medium">
+        <div class="text-red-600 selector-dark:text-red-400 font-medium mb-1">
           Relearn: {{ deck.relearnStack.length }}
         </div>
       </div>

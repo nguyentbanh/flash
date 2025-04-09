@@ -103,6 +103,16 @@ export default {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Contain the content */
+}
+
+.markdown {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 10px;
+  word-wrap: break-word; /* Break long words */
+  overflow-wrap: break-word;
 }
 
 .flashcard-front {
@@ -124,5 +134,34 @@ export default {
 .dark .flashcard-back {
   background-color: #1a202c;
   color: #f7fafc;
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+  .flashcard {
+    height: 400px; /* Taller cards on mobile */
+  }
+  
+  .markdown {
+    font-size: 16px; /* Slightly larger font on mobile */
+  }
+}
+
+/* Extra adjustments for very small screens */
+@media (max-width: 375px) {
+  .flashcard {
+    height: 350px;
+  }
+  
+  .markdown {
+    font-size: 14px;
+  }
+}
+
+/* Adjust for portrait orientation specifically */
+@media (max-width: 768px) and (orientation: portrait) {
+  .flashcard {
+    height: 450px; /* Even taller in portrait */
+  }
 }
 </style>
